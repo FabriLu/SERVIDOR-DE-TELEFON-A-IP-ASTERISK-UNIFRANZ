@@ -1,0 +1,9 @@
+04-implementacion/docker/.env
+04-implementacion/docker/*.env
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+05-pruebas/capturas/*
+!05-pruebas/capturas/README.md

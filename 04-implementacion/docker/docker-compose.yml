@@ -1,0 +1,16 @@
+services:
+  asterisk:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: asterisk
+    restart: unless-stopped
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+      - "10000-10100:10000-10100/udp"
+    volumes:
+      - ./config/pjsip.conf:/etc/asterisk/pjsip.conf:ro
+      - ./config/extensions.conf:/etc/asterisk/extensions.conf:ro
+      - ./config/rtp.conf:/etc/asterisk/rtp.conf:ro
+    command: ["asterisk", "-f", "-vvv"]
